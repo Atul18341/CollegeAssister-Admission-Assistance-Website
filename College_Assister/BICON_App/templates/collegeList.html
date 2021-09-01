@@ -1,0 +1,87 @@
+{% include "header.html" %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CollegeAssister:College List</title>
+</head>
+<body>
+{% block content %}
+<form action="{% url 'filters' %}" method="POST" id="cutoff">
+  {% csrf_token %}
+  {{ form}}
+  <input type="submit" id="submit">
+</form>
+
+
+<div class="filter"><b></b><select onchange="location=this.value;">
+    <option value="#">Filter Using</option>
+        <option value="{% url 'establishment' %}">Establishment Year</option></select></div>
+<div class="container">
+    <div class="row">
+
+ {% for colleges in college %}
+    <div class="col-md-4">
+
+        <b><a href="{% url 'college' pk=colleges.id %}"><button class="button button1">{{colleges.college_name}}</button></a></b>
+
+    </div>
+    {% endfor %}
+{% endblock %}
+      </div>
+</div>
+
+        <style type="text/css">
+body{
+	background-image:url("media/list.jpg");
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+
+    }
+    #cutoff select{border-radius:20px;
+                  width:180px;
+                  margin-left:5%;
+                  background-color:#78DEC7;
+                   margin-top:20px;
+    }
+  .filter select{border-radius:10px;
+                  width:180px;
+                  margin-left:5%;
+                  margin-top:20px;
+                  background-color:#F7DBF0;}
+    #submit{border-radius:10px;
+                  width:100px;
+                  margin-left:5%;
+                  background-color:#A2DBFA;
+
+}
+  .button{
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  margin:20px 0px;
+  background-color: #4CAF50;
+  border-radius:20px;
+  box-shadow: 0 15px #FFF5FD;
+}
+
+.button1 {
+  background-color:#476072;
+  color: white;
+  border: 1px solid black;
+}
+
+.button1:hover {
+  background-color:#476072;
+  color:black;
+}
+</style>
+<script>
+ $("#submit").click(function(){
+    $(".button").css("display", "none");
+    });
+</script>
+</body>
+</html>

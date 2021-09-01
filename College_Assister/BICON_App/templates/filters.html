@@ -1,0 +1,49 @@
+{% include "header.html" %}
+<body>
+<h5 align="center">Branch:{{branch}} Category:{{category}}</h5>
+ <table id="design">
+<tr><th>College Name</th><th>UR Opening</th><th>UR Closing</th><th>CAT Opening</th><th>CAT Opening</th>
+   {% for cutoff in cutoffs %}
+     <tr><td>{{cutoff.college_id__college_name}}</td>
+          {% ifequal branch "CSE" %}
+       <td>{{cutoff.CSE1}}</td> <td>{{cutoff.CSE2}}</td> <td>{{cutoff.CSE3}}</td><td>{{cutoff.CSE4}}</td></tr>
+        {% endifequal %}
+<!------------------------------- EEE Part !------------------------------------------------------------------------------->
+        {% ifequal branch "EEE" %}
+         <td>{{cutoff.EEE1}}</td> <td>{{cutoff.EEE2}}</td> <td>{{cutoff.EEE3}}</td><td>{{cutoff.EEE4}}</td></tr>
+        {% endifequal %}
+
+<!------------------------------- ECE Part !------------------------------------------------------------------------------->
+    {% ifequal branch "ECE" %}
+       <td>{{cutoff.ECE1}}</td> <td>{{cutoff.ECE2}}</td> <td>{{cutoff.ECE3}}</td><td>{{cutoff.ECE4}}</td></tr>
+        {% endifequal %}
+<!------------------------------- EE Part !------------------------------------------------------------------------------->
+       {% ifequal branch "EE" %}
+    <td>{{cutoff.EE1}}</td> <td>{{cutoff.EE2}}</td> <td>{{cutoff.EE3}}</td><td>{{cutoff.EE4}}</td></tr>
+       {% endifequal %}
+<!------------------------------- ME Part !------------------------------------------------------------------------------->
+       {% ifequal branch "ME" %}
+    <td>{{cutoff.ME1}}</td> <td>{{cutoff.ME2}}</td> <td>{{cutoff.ME3}}</td> <td>{{cutoff.ME4}}</td></tr>
+        {% endifequal %}
+<!------------------------------- CE Part !------------------------------------------------------------------------------->
+       {% ifequal branch "CE" %}
+    <td>{{cutoff.CE1}}</td> <td>{{cutoff.CE2}}</td> <td>{{cutoff.CE3}}</td><td>{{cutoff.CE4}}</td></tr>
+        {% endifequal %}
+  {% endfor %}
+ </table>
+</body>
+<style>
+    #design th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color:#476072;
+  color: white;
+}
+#design td, #design th {
+  border: 1px solid ;
+  padding: 8px;
+}
+#design tr:nth-child(even){background-color: #f2f2f2;}
+#design tr:hover {background-color: #ddd;}
+</style>
+</html>

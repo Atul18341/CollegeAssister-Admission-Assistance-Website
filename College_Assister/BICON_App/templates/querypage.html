@@ -1,0 +1,13 @@
+{% include 'header.html' %}
+{% block content %}
+  
+   {% for query in queries %}
+    <div class="query">{{query.query}}</div>
+     {{query.response}}
+   {% endfor %}
+{% endblock %}
+{% include 'footer.html' %}
+
+<style type="text/css">
+.query{background-color:beige;padding:10px;font-weight:bold;}
+</style>

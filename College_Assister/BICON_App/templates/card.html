@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+padding: 0;
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;			
+}
+/*apply css properties to body*/
+		
+body {
+ 
+display: flex;
+justify-content: center;
+ align-items:center;
+ }
+ 
+/*apply css properties to container class*/
+		
+.container {
+ position: relative;
+ width: 1000px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ padding: 35px;
+
+ }
+ /*apply css properties to card class*/
+		
+.container .card {
+height: 230px;
+max-width: 200px;
+position: relative;
+margin: 30px 10px;
+padding: 20px 15px;
+background:#00EAD3;
+display: flex;
+flex-direction: column;
+ border:5px solid #393E46;
+transition: 0.3s ease-in-out;			
+}
+/*apply css properties to card class when it get pointed by cursor*/
+		
+.container .card:hover {
+height: 400px;
+}
+/*apply css properties to imgbox class*/
+		
+.containe .card .imgbox {
+position: relative;
+width: 260px;
+height: 260px;
+top: -60px;
+left: 20px;
+}
+/*apply css properties to img tag*/
+		
+.container .card .imgbox img {
+max-width: 100%;
+border-radius: 4px;
+}
+/*apply css properties to content class*/
+		
+.container .card .content {
+position: relative;
+margin-top: -100px;
+padding: 10px 15px;
+text-align: center;
+color: #111;
+visibility: hidden;
+opacity: 0;
+transition: 0.3s ease-in-out;
+}
+/*apply css properties to content when card gets hovered*/
+		
+.container .card:hover .content {
+visibility: visible;
+opacity: 1;
+margin-top: -10px;
+transition-delay: 0.3s;
+}
+/* css part completed*/
+</style>
+</head>
+<body>
+<div class="container">
+<div class="card">
+<div class="imgbox">
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20210215170112/geek2-200x200.jpg">
+</div>
+<div class="content">
+
+<!--heading of the card-->
+<h3>Rahul Kumar</h3>
+<!--content of the card-->				
+<p>Developer of Frontend Part & Designing Part.
+Branch:CSE (2k18).
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

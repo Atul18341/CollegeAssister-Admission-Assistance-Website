@@ -1,0 +1,165 @@
+{% include "header.html" %}
+{% block content %}
+<body onload="all()">
+    <marquee class="float">Welcome To The CollegeAssister-An Assistance for selecting Right Engineering College</marquee>
+
+    <div class="main">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+
+  <div class="carousel-item active">
+      <div class="text">
+      <h2 class="cid"> COLLEGE ASSISTER</h2>
+      <p>{ An Assistance for Selecting Right Engineering College }</p>
+      </div>
+      <img src="/media/d688d5e.gif" alt="Los Angeles" width="100%" height="500">
+       <div class="carousel-caption">
+      </div>
+    </div>
+ <div class="carousel-item">
+      <img src="/media/bg3.png" alt="Web Development" width="100%" height="500">
+      <div class="carousel-caption">
+      </div>
+    </div>
+     <div class="carousel-item ">
+      <img src="/media/bg2.jpg" alt="OOPS Practical session" width="100%" height="500">
+     <div class="carousel-caption">
+      </div>
+    </div>
+
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+        </div>
+        <h5><center><b> OUR DATA CONTRIBUTORS</b></center></h5>
+        <div class="container">
+        <div class="row">
+        {% for contributor in data_contributors %}
+            <div class="col-md-3 effect">
+           <div class="wrapper">
+      <div class="card front-face">
+        <img src="/media/{{ contributor.profile_pic }}" alt="Flip Card">
+      </div>
+      <div class="card back-face">
+        <img src="/media/{{ contributor.profile_pic }}" alt="Flip Card">
+        <div class="info">
+          <div class="title">{{ contributor.name }}</div>
+          <p>{{ contributor.branch }}, {{ contributor.year }}<br>{{ contributor.college }}</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    {% endfor %}     
+        </div>
+        </div>
+</body>
+{% endblock %}
+
+
+
+    <style type="text/css">
+
+ .main{width:100%;
+       height:500px;
+
+
+       background-size:100% 100%;
+	  }
+.carousel-item-active{position:relative;}
+.cid{@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@100&display=swap');
+font-family: 'Lobster', cursive;
+font-family: 'Roboto', sans-serif;
+     position:absolute;
+     top:30%;
+     left:20px;
+}
+ h2{text-shadow: 2px 2px 4px #7C83FD;}
+
+.text{position:absolute;
+      top:30%;}
+.text p{margin-top:90px;margin-left:10px;
+        color:black;}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+::selection{
+  color: #fff;
+  background: #1cc7d0;
+}
+.wrapper{
+  height: 250px;
+  width: 250px;
+  position: relative;
+  transform-style: preserve-3d;
+	perspective: 1000px;
+  margin: 10px;
+}
+.wrapper .card{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  transform: translateY(0deg);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+}
+.wrapper:hover > .front-face{
+  transform: rotateY(-180deg);
+}
+.wrapper .card img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.wrapper .back-face{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: rotateY(180deg);
+}
+.wrapper:hover > .back-face{
+  transform: rotateY(0deg);
+}
+.wrapper .back-face img{
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 50%;
+  background: linear-gradient(375deg, #1cc7d0, #2ede98);
+}
+.wrapper .back-face .info{
+  text-align: center;
+}
+
+
+
+ h5{
+  color: white;
+  text-shadow: 2px 2px 4px #082032;
+}
+
+  </style>
+        {% include 'footer.html' %}
+</body>
+</html>
+

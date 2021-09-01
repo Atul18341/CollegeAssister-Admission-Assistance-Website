@@ -1,0 +1,78 @@
+{% include "header.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Assister:Colleges</title>
+</head>
+<body>
+{% block content %}
+     {% if college.id %}
+<div class="container-fluid">
+
+<div class="college">
+  <img src="/media/{{ college.building_image }}"width="100%" height="550px" alt="Main Building Image">
+     <div class="row">
+
+  <div class="under">
+          <img src="/media/{{ college.college_logo }}" width="100px" height=100px" alt="College Logo">
+    <h4><b>{{college.college_name}}</b></h4>
+      <h6>Address: {{college.address}}</h6></div>
+
+
+  </div>
+    </div>
+<div class="row">
+    <div class="col-md-3">
+ <div class="circle">
+ <img src="/media/campus.png" width="130px" height=130px" ><br>
+<h6 align="center">Campus Area</h6>
+     <p align="center"><b>{{ college.campus_area }}</b></p>
+ </div>
+    </div>
+<div class="col-md-3">
+ <div class="circle">
+  <img src="/media/estab.png" width="130px" height="130px"><br>
+<h6 align="center">Establishment Year</h6>
+     <p align="center"><b>{{ college.establishment_year }}</b></p>
+</div>
+</div>
+ <div class="col-md-3">
+ <div class="circle">
+     <img src="/media/branches.png" width="130px" height=130px"><br>
+<h6 align="center">Branches</h6>
+     <p align="center"><b>{{ college.branches }}</b></p>
+</div>
+    </div>
+    <div class="col-md-3">
+ <div class="circle">
+     <img src="/media/teacher.png" width="130px" height=130px"><br>
+<h6 align="center">Student-Teacher Ratio</h6>
+     <p align="center"><b>{{ college.student_teacher_ratio }}</b></p>
+</div>
+    </div>
+<h2>Year-wise Cutoffs</h2><br>
+
+ {% for branch in branches %}
+
+    <b> <a href="{% url 'cutoffTable' no=college.id Branch=branch.branch %}" class="btn btn-white btn-animation-1">{{branch.branch}}</a></b>
+
+    {% endfor %}
+
+</div>
+</div>
+{% endif %}
+{% endblock %}
+{% include "footer.html" %}
+<style>
+    .cutoff{border:1px solid black;
+        width:90%;
+       margin-left: auto;
+       margin-right: auto;
+       margin-bottom:10px;
+       overflow: hidden;
+}
+tr,td,th{border:1px solid black;text-align:center;padding:10px;}
+
+</style>
+</body>
+</html>

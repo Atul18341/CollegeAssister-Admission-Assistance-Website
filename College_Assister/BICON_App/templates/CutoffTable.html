@@ -1,0 +1,65 @@
+{% include "header.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Assister:Colleges Cutoff</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        {% for Year in years %}
+         <div class="col-md-6">
+<table id="design">
+    <tr><th colspan="6">{{branch}} {{Year.Year}}</th></tr>
+    <tr><th>Round</th><th>Category</th><th>UR Opening</th><th>UR Closing</th><th>CAT Opening</th><th>CAT Closing</th></tr>
+
+{% for cutoff in cutoffs %}
+       {% ifequal branch "CSE" %}
+      <tr><td>{{cutoff.Round_id__Round}}</td> <td>{{cutoff.Category_id__Category}}</td><td>{{cutoff.CSE1}}</td> <td>{{cutoff.CSE2}}</td> <td>{{cutoff.CSE3}}</td><td>{{cutoff.CSE4}}</td></tr>
+        {% endifequal %}
+<!------------------------------- EEE Part !------------------------------------------------------------------------------->
+        {% ifequal branch "EEE" %}
+         <tr><td>{{cutoff.Round_id__Round}}</td><td>{{cutoff.Category_id__Category}}</td><td>{{cutoff.EEE1}}</td> <td>{{cutoff.EEE2}}</td> <td>{{cutoff.EEE3}}</td><td>{{cutoff.EEE4}}</td></tr>
+        {% endifequal %}
+
+<!------------------------------- ECE Part !------------------------------------------------------------------------------->
+    {% ifequal branch "ECE" %}
+       <tr><td>{{cutoff.Round_id__Round}}</td><td>{{cutoff.Category_id__Category}}</td><td>{{cutoff.ECE1}}</td> <td>{{cutoff.ECE2}}</td> <td>{{cutoff.ECE3}}</td><td>{{cutoff.ECE4}}</td></tr>
+        {% endifequal %}
+<!------------------------------- EE Part !------------------------------------------------------------------------------->
+       {% ifequal branch "EE" %}
+   <tr><td>{{cutoff.Round_id__Round}}</td><td>{{cutoff.Category_id__Category}}</td><td>{{cutoff.EE1}}</td> <td>{{cutoff.EE2}}</td> <td>{{cutoff.EE3}}</td><td>{{cutoff.EE4}}</td></tr>
+       {% endifequal %}
+<!------------------------------- ME Part !------------------------------------------------------------------------------->
+       {% ifequal branch "ME" %}
+    <tr><td>{{cutoff.Round_id__Round}}</td><td>{{cutoff.Category_id__Category}}</td><td>{{cutoff.ME1}}</td> <td>{{cutoff.ME2}}</td> <td>{{cutoff.ME3}}</td> <td>{{cutoff.ME4}}</td></tr>
+        {% endifequal %}
+<!------------------------------- CE Part !------------------------------------------------------------------------------->
+       {% ifequal branch "CE" %}
+    <tr><td>{{cutoff.Round_id__Round}}</td><td>{{cutoff.Category_id__Category}}</td><td>{{cutoff.CE1}}</td> <td>{{cutoff.CE2}}</td> <td>{{cutoff.CE3}}</td><td>{{cutoff.CE4}}</td></tr>
+        {% endifequal %}
+
+    {% endfor %}
+    </table>
+         </div>
+    {% endfor %}
+
+    </div>
+</div>
+
+<style>
+
+#design th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color:#476072;
+  color: white;
+}
+#design td, #design th {
+  border: 1px solid ;
+  padding: 8px;
+}
+#design tr:nth-child(even){background-color: #f2f2f2;}
+#design tr:hover {background-color: #ddd;}
+</style>
+</body>
