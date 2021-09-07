@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'BICON.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST':'localhost',
+        'HOST':'remotemysql.com',
         'PORT':3306,
-        'NAME':'collegeassister3',
-        'USER':'root',
-        'PASSWORD':'',
+        'NAME':'PoNu7MHacI',
+        'USER':'PoNu7MHacI',
+        'PASSWORD':'CA4s85HJlb',
     }
 }
 

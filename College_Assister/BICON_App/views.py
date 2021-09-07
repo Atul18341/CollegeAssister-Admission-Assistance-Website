@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.core import serializers
 from django.shortcuts import render, get_object_or_404,HttpResponseRedirect
-from .models import colleges, Years, Rounds, Categories, branches, cutoff, data_contributors,discussion
-from .forms import CutoffForm
+from .models import colleges, Years, Rounds, branches, cutoff, data_contributors,discussion
+from .forms import CutoffForm,QueryForm
 
 
 # Create your views here.
@@ -68,3 +68,7 @@ def cutoffview(request):
 def queryPageview(request):
     Query=discussion.objects.all()
     return render(request,"querypage.html",{'queries':Query})
+
+def queryForm(request):
+
+    return render(request,"queryform.html",{"form":QueryForm})

@@ -1,9 +1,9 @@
 {% include 'header.html' %}
 {% block content %}
   
-   {% for query in queries %}
-    <div class="query">{{query.query}}</div>
-     {{query.response}}
+{% for query in queries %}
+<div class="query">{{query.query}}</div>
+ {{query.response}}
    {% endfor %}
 {% endblock %}
 {% include 'footer.html' %}

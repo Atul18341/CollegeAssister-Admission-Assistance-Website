@@ -12,3 +12,7 @@ class CutoffForm(forms.Form):
     branch = forms.ChoiceField(choices=Branches,label="")
     category = forms.ChoiceField(choices=Category,label="")
     round = forms.ChoiceField(choices=Round,label="")
+
+class QueryForm(forms.Form):
+    name=forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name'}))
+    hometown=forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Hometown'}))

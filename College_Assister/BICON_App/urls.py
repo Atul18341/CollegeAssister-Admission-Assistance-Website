@@ -10,7 +10,7 @@ urlpatterns=[
      path('Contact',views.contact,name="contact"),
      path('filters',views.cutoffview,name="filters"),
      path('querypage',views.queryPageview,name="querypage"),
-
+     path('query-form',views.queryForm,name="queryform"),
 ##### College List Filter Urls
     path('CollegeList/establishment_year',views.establishment_year,name="establishment"),
     path('College/<int:no>/<str:Branch>/',views.cutoffTable,name="cutoffTable")
